@@ -49,6 +49,10 @@ function customerFlow(customer: Customer) {
     (action: any) => action.parentBranchId === parentBranch.id
   );
 
+  actionBranches.sort(
+    (a: any, b: any) => a.nextActionId < b.nextActionId || null
+  );
+
   // Return merged
   return [
     { playbookActionId: rootAction.id },
