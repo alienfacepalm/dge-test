@@ -50,7 +50,7 @@ function customerFlow(customer: Customer) {
   );
 
   actionBranches.sort(
-    (a: any, b: any) => a.nextActionId < b.nextActionId || null
+    (a: any, b: any) => a.nextActionId < (b.nextActionId || null)
   );
 
   // Return merged
