@@ -49,15 +49,14 @@ function customerFlow(customer: Customer) {
     (action: any) => action.parentBranchId === parentBranch.id
   );
 
-  const mergedArray = [
+  // Return merged
+  return [
     { playbookActionId: rootAction.id },
     { playbookBranchId: parentBranch.id },
     ...actionBranches.map((action: Action) => ({
       playbookActionId: action.id,
     })),
   ];
-
-  return mergedArray;
 }
 
 /************************************************************/
@@ -84,5 +83,5 @@ const customerTwo: Customer = {
   id: "fc33ceff-450a-4a29-9c55-b8f36b5a0202",
 };
 
-console.log(customerFlow(customerOne));
-console.log(customerFlow(customerTwo));
+console.log("Customer One\n", customerFlow(customerOne));
+console.log("Customer Two\n", customerFlow(customerTwo));
