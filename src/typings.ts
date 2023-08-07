@@ -21,14 +21,14 @@ export interface Filter {
 }
 
 export interface Action {
-  id: string;
+  id: `action-${string}`;
   nextActionId: string | null;
   actionType: ActionType;
   parentBranchId: string | null;
 }
 
 export interface Branch {
-  id: string;
+  id: `branch-${string}`;
   parentBranchId: string | null;
   name: string;
   position: number;
