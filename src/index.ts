@@ -1,6 +1,6 @@
 import * as data from "./data/entities.json";
 
-import { Customer, Action } from "./typings";
+import { Customer, Action, Branch } from "./typings";
 
 function customerFlow(customer: Customer) {
   // Find the root action
@@ -10,7 +10,7 @@ function customerFlow(customer: Customer) {
 
   // presort branches by MRR filter
   const branchFiltersSorted = Object.values(data.branches).sort(
-    (a: any, b: any) => {
+    (a: Branch, b: Branch) => {
       const mrrA = a.filters[0]?.value;
       const mrrB = b.filters[0]?.value;
       return mrrA - mrrB;
@@ -46,7 +46,7 @@ function customerFlow(customer: Customer) {
 
   // Find the subsequent actions using the firstBranch
   const actionBranches: any = Object.values(data.actions).filter(
-    (action: any) => action.parentBranchId === parentBranch.id
+    (action: Action) => action.parentBranchId === parentBranch.id
   );
 
   actionBranches.sort(

@@ -8,12 +8,6 @@ export type Customer = {
   id: string;
 };
 
-export type ActionType =
-  | "addToSegmentAction"
-  | "assignCSMAction"
-  | "startConversationAction"
-  | "createIndicatorAction";
-
 export interface Filter {
   property: string;
   value: number;
@@ -21,14 +15,14 @@ export interface Filter {
 }
 
 export interface Action {
-  id: `action-${string}`;
+  id: string;
   nextActionId: string | null;
-  actionType: ActionType;
+  actionType: string;
   parentBranchId: string | null;
 }
 
 export interface Branch {
-  id: `branch-${string}`;
+  id: string;
   parentBranchId: string | null;
   name: string;
   position: number;
