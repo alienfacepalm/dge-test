@@ -28,16 +28,3 @@ export interface Branch {
   position: number;
   filters: Filter[];
 }
-
-export interface ActionsData {
-  [key: string]: Action;
-}
-
-export interface BranchesData {
-  [key: string]: Branch;
-}
-
-export interface Data {
-  actions: any;
-  branches: any;
-}
