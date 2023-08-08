@@ -5,7 +5,7 @@ import { Customer, Action, Branch } from "./typings";
 function customerFlow(customer: Customer) {
   // Find the root action
   const rootAction: any = Object.values(data.actions).find(
-    (action: any) => action.parentBranchId === null
+    (action: Action) => action.parentBranchId === null
   );
 
   // presort branches by MRR filter
