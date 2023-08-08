@@ -11,8 +11,10 @@ function customerFlow(customer: Customer) {
   // presort branches by MRR filter
   const branchFiltersSorted = Object.values(data.branches).sort(
     (a: Branch, b: Branch) => {
-      const mrrA = a.filters[0]?.value;
-      const mrrB = b.filters[0]?.value;
+      const idxA = a.filters.findIndex((f) => f.property === "mrr");
+      const idxB = a.filters.findIndex((f) => f.property === "mrr");
+      const mrrA = a.filters[idxA]?.value;
+      const mrrB = b.filters[idxB]?.value;
       return mrrA - mrrB;
     }
   );
