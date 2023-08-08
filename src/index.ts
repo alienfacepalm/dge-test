@@ -19,7 +19,7 @@ function customerFlow(customer: Customer) {
 
   // Find the branches using customer MRR filter
   const parentBranch: any = Object.values(branchFiltersSorted).find(
-    (branch: any) => {
+    (branch: Branch) => {
       const filters = branch.filters;
 
       // Here we find the branch that matches MRR input
